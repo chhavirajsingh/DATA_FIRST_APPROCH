@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DATA_FIRST_APPROCH.Models.Students>
+@{
+    ViewBag.TITTLE = "INDEX";
+}
+@Html.ActionLink("create", "create")
+<h1>STUDENTS LIST</h1>
+<table class="table table-bordered">
+
+    <tr>
+        <th>id</th>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>EMAIL</th>
+        <th>SALARY</th>
+        <th>mobile</th>
+        <th>Gender</th>
+
+
+    </tr>
+    @foreach (var s in Model)
+    {
+<tr>
+    <td>@s.id</td>
+    <td>@s.Name</td>
+    <td>@s.address</td>
+    <td>@s.Email</td>
+    <td>@s.salary</td>
+    <td>@s.mobile</td>
+    <td>@s.Gender</td>
+    <td><a href="@Url.Action("Edit", "Home", new { s.id})" class="btn btn-primary">Edit</a></td>
+    <td><a href="@Url.Action("Delete", "Home", new { s.id})" class="btn btn-danger">Delete</a></td>
+    
+</tr>
+    }
+
+</table>
